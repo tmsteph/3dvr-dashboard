@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3dvr.tech Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .box h3 {
+            margin: 0 0 10px;
+        }
+        .earnings {
+            font-size: 24px;
+            font-weight: bold;
+            color: green;
+        }
+        .projects, .clients, .profit-sharing {
+            list-style: none;
+            padding: 0;
+        }
+        .projects li, .clients li, .profit-sharing li {
+            background: #e9e9e9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to 3dvr.tech Dashboard</h1>
+
+        <!-- User Role Overview -->
+        <h2>Your Role: <span id="user-role">Salesperson</span></h2>
+        
+        <div class="grid">
+            <!-- Earnings Section -->
+            <div class="box">
+                <h3>Your Earnings</h3>
+                <p class="earnings">$<span id="earnings">0.00</span></p>
+            </div>
+
+            <!-- Profit-Sharing -->
+            <div class="box">
+                <h3>TommyDollar Balance</h3>
+                <p class="earnings">$<span id="tommy-dollars">0.00</span></p>
+            </div>
+        </div>
+
+        <!-- Work & Client Management -->
+        <h2>Work & Clients</h2>
+        <div class="grid">
+            <div class="box">
+                <h3>Ongoing Projects</h3>
+                <ul class="projects" id="project-list">
+                    <li>No projects assigned</li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h3>Your Clients</h3>
+                <ul class="clients" id="client-list">
+                    <li>No clients referred</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Profit-Sharing Details -->
+        <h2>Profit Sharing</h2>
+        <div class="box">
+            <h3>Monthly Payouts</h3>
+            <ul class="profit-sharing" id="profit-list">
+                <li>No payouts yet</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 3dvr.tech | Customer & Employee-Owned
+    </div>
+
+    <script>
+        // Sample Data - Replace with API calls later
+        let userRole = "Salesperson"; // Salesperson, Project Manager, Employee, Subscriber
+        let earnings = 350.00;
+        let tommyDollars = 120.00;
+        let projects = ["Website for Client A", "App Development for Startup B"];
+        let clients = ["Client A", "Client B"];
+        let profitSharing = ["$15.00 - January", "$12.00 - February"];
+
+        // Insert Data into Dashboard
+        document.getElementById("user-role").innerText = userRole;
+        document.getElementById("earnings").innerText = earnings.toFixed(2);
+        document.getElementById("tommy-dollars").innerText = tommyDollars.toFixed(2);
+
+        let projectList = document.getElementById("project-list");
+        projectList.innerHTML = projects.map(p => `<li>${p}</li>`).join("");
+
+        let clientList = document.getElementById("client-list");
+        clientList.innerHTML = clients.map(c => `<li>${c}</li>`).join("");
+
+        let profitList = document.getElementById("profit-list");
+        profitList.innerHTML = profitSharing.map(p => `<li>${p}</li>`).join("");
+    </script>
+
+</body>
+</html>
